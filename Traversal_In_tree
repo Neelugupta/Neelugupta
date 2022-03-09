@@ -1,0 +1,68 @@
+class Main{
+    public static void main(String[] args){
+        Node root= getTree();
+        preorder(root);
+        System.out.println(" ");
+        inorder(root);
+        System.out.println(" ");
+        postorder(root);
+    }
+    private static Node getTree(){
+        Node root =new Node(1);
+        Node node1=new Node(2);
+        Node node2=new Node(3);
+        Node node3=new Node(4);
+        Node node4=new Node(5);
+        Node node5=new Node(6);
+        Node node6=new Node(7);
+        Node node7=new Node(8);
+
+        root.left=node1;
+        root.right=node2;
+
+        node1.left=node3;
+        node1.right=node4;
+        node2.left=node5;
+        node2.right=node6;
+
+        node3.left=node7;
+        return root;
+    }
+    // code for preorder traversal in tree
+    private static void preorder(Node root){
+        if(root==null){
+            return ;
+        }
+        System.out.print(root.data+ " ");
+        preorder(root.left);
+        preorder(root.right);
+    }
+    // code for inorder traversal
+    private static void inorder(Node root){
+        if(root==null){
+            return ;
+        }
+        inorder(root.left);
+        System.out.print(root.data+ " ");
+        inorder(root.right);
+    }
+    // code for postorder traversal in getTree
+    private static void postorder(Node root){
+        if(root==null){
+            return;
+        }
+        postorder(root.left);
+        postorder(root.right);
+        System.out.print(root.data+" ");
+    }
+}
+
+
+class Node{
+    int data;
+    public Node left;
+    public Node right;
+    public Node(int data){
+        this.data=data;
+    }
+}
